@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.19)
-project(bootstrap-cpp-kata CXX)
+project(game-of-life-refactoring-cpp-kata CXX)
 enable_testing()
 
 set(CMAKE_CXX_STANDARD 17)

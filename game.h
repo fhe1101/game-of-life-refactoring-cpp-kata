@@ -10,14 +10,16 @@ public:
     {
         size_t rows    = grid.size();
         size_t columns = grid[0].size();
-        size_t above   = 0;
-        size_t below   = 0;
+
+        size_t above = 0;
+        size_t below = 0;
         for (int i = -1; i <= 1; ++i) {
             above += grid[(row - 1) % rows][col + i];
             below += grid[(row + 1) % rows][col + i];
         }
         size_t left  = grid[row][(col - 1) % columns];
         size_t right = grid[row][(col + 1) % columns];
+
         return above + below + left + right;
     }
 
@@ -63,6 +65,7 @@ public:
         std::vector<std::vector<size_t>> new_grid;
         for (size_t row_num = 0; row_num < grid.size(); ++row_num) {
             std::vector<size_t> new_row;
+
             for (size_t col_num = 0; col_num < grid[row_num].size(); ++col_num) {
                 size_t cell = grid[row_num][col_num];
                 if (cell) {

@@ -34,9 +34,9 @@ TEST(GameTest, TwoOrThreeNeighborsLiveOn)
     game.iterate();
 
     std::vector<std::vector<size_t>> expected_grid = {
-        {0, 0, 0, 0, 0},
         {0, 0, 1, 0, 0},
-        {0, 0, 0, 0, 0},
+        {0, 0, 1, 0, 0},
+        {0, 0, 1, 0, 0},
     };
     EXPECT_EQ(game.grid, expected_grid);
 }
@@ -56,9 +56,9 @@ TEST(GameTest, OverPopulation)
 
     std::vector<std::vector<size_t>> expected_grid = {
         {0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0},
+        {0, 1, 1, 1, 0},
+        {0, 1, 0, 1, 0},
+        {0, 1, 1, 1, 0},
         {0, 0, 0, 0, 0},
     };
     EXPECT_EQ(game.grid, expected_grid);
@@ -77,7 +77,7 @@ TEST(GameTest, Reproduction)
 
     std::vector<std::vector<size_t>> expected_grid = {
         {0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0},
+        {0, 0, 1, 0, 0},
         {0, 0, 1, 0, 0},
         {0, 0, 0, 0, 0},
     };

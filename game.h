@@ -10,10 +10,14 @@ public:
     {
         size_t rows    = grid.size();
         size_t columns = grid[0].size();
-        size_t above   = grid[(row - 1 + rows) % rows][col];
-        size_t below   = grid[(row + 1) % rows][col];
-        size_t left    = grid[row][(col - 1 + columns) % columns];
-        size_t right   = grid[row][(col + 1) % columns];
+        size_t above   = 0;
+        size_t below   = 0;
+        for (int i = -1; i <= 1; ++i) {
+            above += grid[(row - 1) % rows][col + i];
+            below += grid[(row + 1) % rows][col + i];
+        }
+        size_t left  = grid[row][(col - 1) % columns];
+        size_t right = grid[row][(col + 1) % columns];
         return above + below + left + right;
     }
 

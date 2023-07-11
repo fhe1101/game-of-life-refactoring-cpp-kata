@@ -3,7 +3,7 @@
 
 class Cell {
 public:
-    Cell(size_t row, size_t col) : row(row), col(col) {}
+    Cell(size_t row, size_t column) : row(row), column(column) {}
     virtual ~Cell() = default;
 
     size_t get_neighbor_count(const std::vector<std::vector<size_t>>& grid) const
@@ -14,11 +14,11 @@ public:
         size_t above = 0;
         size_t below = 0;
         for (int i = -1; i <= 1; ++i) {
-            above += grid[(row - 1) % rows][col + i];
-            below += grid[(row + 1) % rows][col + i];
+            above += grid[(row - 1) % rows][column + i];
+            below += grid[(row + 1) % rows][column + i];
         }
-        size_t left  = grid[row][(col - 1) % columns];
-        size_t right = grid[row][(col + 1) % columns];
+        size_t left  = grid[row][(column - 1) % columns];
+        size_t right = grid[row][(column + 1) % columns];
 
         return above + below + left + right;
     }
@@ -27,7 +27,7 @@ public:
 
 protected:
     size_t row;
-    size_t col;
+    size_t column;
 };
 
 class Critter final : public Cell {

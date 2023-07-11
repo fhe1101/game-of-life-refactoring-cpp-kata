@@ -50,7 +50,7 @@ public:
         throw std::runtime_error("Space cell is always dead");
     }
 
-    bool will_be_born(const std::vector<std::vector<size_t>>& grid)
+    bool will_be_born(const std::vector<std::vector<size_t>>& grid) const
     {
         return get_neighbor_count(grid) == 3;
     }

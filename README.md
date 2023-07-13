@@ -44,7 +44,7 @@ Here are the new cell types to implement:
 1. **Immortal Cell**: This cell type never dies. Once born, it stays alive
    through all the subsequent generations.
 2. **Reproductive Cell**: This cell type reproduces faster than a normal cell.
-   It can make a new cell in the neighborhood with only two neighbors instead of
+   It can make a new cell in the neighborhood with 2-3 neighbors instead of
    three.
 3. **Lazy Cell**: This cell type requires more neighbors to survive. It stays
    alive only if it has exactly three neighbors.

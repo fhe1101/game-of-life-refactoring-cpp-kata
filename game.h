@@ -1,5 +1,5 @@
-#include <vector>
 #include <stdexcept>
+#include <vector>
 
 class Cell {
 public:
@@ -13,12 +13,13 @@ public:
 
         size_t above = 0;
         size_t below = 0;
-        for (int i = -1; i <= 1; ++i) {
-            above += grid[(row - 1) % rows][column + i];
-            below += grid[(row + 1) % rows][column + i];
+        for (int i = -1; i < 2; ++i) {
+            size_t col = (column + i + columns) % columns;
+            above += grid[(row - 1 + rows) % rows][col];
+            below += grid[(row + 1 + rows) % rows][col];
         }
-        size_t left  = grid[row][(column - 1) % columns];
-        size_t right = grid[row][(column + 1) % columns];
+        size_t left  = grid[row][(column - 1 + columns) % columns];
+        size_t right = grid[row][(column + 1 + columns) % columns];
 
         return above + below + left + right;
     }
@@ -63,6 +64,7 @@ public:
     void iterate()
     {
         std::vector<std::vector<size_t>> new_grid;
+
         for (size_t row_num = 0; row_num < grid.size(); ++row_num) {
             std::vector<size_t> new_row;
 

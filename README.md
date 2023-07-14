@@ -1,4 +1,4 @@
-# Bootstrap for C++ katas
+# Game of Life Refactoring C++ Kata
 
 [![CI](https://github.com/Coding-Cuddles/game-of-life-refactoring-cpp-kata/actions/workflows/main.yml/badge.svg)](https://github.com/Coding-Cuddles/game-of-life-refactoring-cpp-kata/actions/workflows/main.yml)
 [![Replit](https://replit.com/badge?caption=Try%20with%20Replit&variant=small)](https://replit.com/new/github/Coding-Cuddles/game-of-life-refactoring-cpp-kata)

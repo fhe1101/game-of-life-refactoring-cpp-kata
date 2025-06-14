@@ -57,6 +57,47 @@ public:
     }
 };
 
+class Important final : public Cell {
+public:
+    using Cell::Cell;
+
+    // Important cells never die; always return true
+    bool will_stay_alive(const std::vector<std::vector<size_t>>& grid) const final
+    {
+        return true;
+    }
+};
+
+class Reproductive final : public Cell {
+public:
+    using Cell::Cell;
+
+    // Reproductive cells stay alive with 2 or 3 neighbors (like Critter)
+    bool will_stay_alive(const std::vector<std::vector<size_t>>& grid) const final
+    {
+        auto neighbors = get_neighbor_count(grid);
+        return 1 < neighbors && neighbors < 4;
+    }
+
+    // Reproductive cells are born with 2 or 3 neighbors (instead of just 3)
+    bool will_be_born(const std::vector<std::vector<size_t>>& grid) const
+    {
+        auto neighbors = get_neighbor_count(grid);
+        return neighbors == 2 || neighbors == 3;
+    }
+};
+
+class Lazy final : public Cell {
+public:
+    using Cell::Cell;
+
+    // Lazy cells stay alive only if they have exactly three neighbors
+    bool will_stay_alive(const std::vector<std::vector<size_t>>& grid) const final
+    {
+        return get_neighbor_count(grid) == 3;
+    }
+};
+
 class Game {
 public:
     explicit Game(std::vector<std::vector<size_t>> grid) : grid(std::move(grid)) {}

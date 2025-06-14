@@ -48,7 +48,7 @@ public:
 
     bool will_stay_alive(const std::vector<std::vector<size_t>>& grid) const final
     {
-        throw std::runtime_error("Space cell is always dead");
+        return false;
     }
 
     bool will_be_born(const std::vector<std::vector<size_t>>& grid) const
@@ -59,7 +59,7 @@ public:
 
 class Game {
 public:
-    Game(std::vector<std::vector<size_t>> grid) : grid(std::move(grid)) {}
+    explicit Game(std::vector<std::vector<size_t>> grid) : grid(std::move(grid)) {}
 
     void iterate()
     {
